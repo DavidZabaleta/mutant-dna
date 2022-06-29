@@ -1,10 +1,9 @@
 package com.mercadolibre.davidzabaleta.mongo.config;
 
-import com.mercadolibre.davidzabaleta.mongo.config.MongoDBSecret;
-import org.springframework.boot.autoconfigure.mongo.ReactiveMongoClientFactory;
 import org.springframework.boot.autoconfigure.mongo.MongoClientSettingsBuilderCustomizer;
 import org.springframework.boot.autoconfigure.mongo.MongoProperties;
 import org.springframework.boot.autoconfigure.mongo.MongoPropertiesClientSettingsBuilderCustomizer;
+import org.springframework.boot.autoconfigure.mongo.ReactiveMongoClientFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
@@ -19,6 +18,7 @@ public class MongoConfig {
     public MongoDBSecret dbSecret(Environment env) {
         return MongoDBSecret.builder()
                 .uri(env.getProperty("spring.data.mongodb.uri"))
+                .database(env.getProperty("spring.data.mongodb.database"))
                 .build();
     }
 
@@ -26,6 +26,7 @@ public class MongoConfig {
     public ReactiveMongoClientFactory mongoProperties(MongoDBSecret secret, Environment env) {
         MongoProperties properties = new MongoProperties();
         properties.setUri(secret.getUri());
+        properties.setDatabase(secret.getDatabase());
 
         List<MongoClientSettingsBuilderCustomizer> list = new ArrayList<>();
         list.add(new MongoPropertiesClientSettingsBuilderCustomizer(properties, env));

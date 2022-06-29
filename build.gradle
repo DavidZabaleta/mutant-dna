@@ -1,15 +1,19 @@
 buildscript {
 	ext {
 		springBootVersion = '2.6.8'
-		jacocoVersion = '0.8.5'
         lombokVersion = '1.18.22'
         junitPlatformVersion = '5.7.0'
 	}
-}
 
-plugins {
-	id 'org.springframework.boot' version "${springBootVersion}"
-	id 'jacoco'
+	repositories {
+		mavenCentral()
+		maven { url "https://repo.spring.io/milestone" }
+		maven { url "https://repo.spring.io/snapshot" }
+	}
+
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
 }
 
 

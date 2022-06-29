@@ -5,21 +5,9 @@ spring:
     name: "mutants-test"
   devtools:
     add-properties: false
-  h2:
-    console:
-      enabled: true
-      path: "/h2"
   profiles:
     include: null
   data:
     mongodb:
-      uri: "mongodb://localhost:27017/test"
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "health,prometheus"
-  endpoint:
-    health:
-      probes:
-        enabled: true
+      uri: "mongodb+srv://davidzabaleta:Zabaleta1997@testingcluster.jhwos.mongodb.net/?retryWrites=true&w=majority"
+      database: MeLiTest
