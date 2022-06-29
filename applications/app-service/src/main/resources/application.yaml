@@ -9,5 +9,5 @@ spring:
     include: null
   data:
     mongodb:
-      uri: "mongodb+srv://davidzabaleta:Zabaleta1997@testingcluster.jhwos.mongodb.net/?retryWrites=true&w=majority"
+      uri: "mongodb+srv://$MONGODB_USERNAME:$MONGODB_PASSWORD@testingcluster.jhwos.mongodb.net/?retryWrites=true&w=majority"
       database: MeLiTest
