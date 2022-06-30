@@ -7,6 +7,7 @@ import org.reactivecommons.utils.ObjectMapperImp;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Configuration
@@ -17,7 +18,17 @@ public class DefaultBeanConfig {
         return new ObjectMapperImp();
     }
 
-    private final MutantDnaRepository mutantDnaRepository = mutantDna -> Mono.just(MutantDna.builder().build());
+    private final MutantDnaRepository mutantDnaRepository = new MutantDnaRepository() {
+        @Override
+        public Mono<MutantDna> saveRecord(MutantDna mutantDna) {
+            return null;
+        }
+
+        @Override
+        public Flux<MutantDna> getAllDnaResults() {
+            return null;
+        }
+    };
 
     @Bean
     @ConditionalOnMissingBean
