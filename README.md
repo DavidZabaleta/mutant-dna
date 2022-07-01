@@ -15,7 +15,7 @@ Este proyecto consiste en una REST API que evalua si una cadena de ADN dada corr
 
 __POST - /mutant__
 
-    curl --location --request POST 'http://34.228.26.70:8080/mutant' \
+    curl --location --request POST 'https://75r4vd5ajg.execute-api.us-east-1.amazonaws.com/adn-test/mutant' \
     --header 'Content-Type: application/json' \
     --data-raw '{
     "dna":["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"]
@@ -28,7 +28,7 @@ Respuesta:
 
 __GET - /stats__
 
-    curl --location --request GET 'http://34.228.26.70:8080/stats'
+    curl --location --request GET 'https://75r4vd5ajg.execute-api.us-east-1.amazonaws.com/adn-test/stats'
 
 Respuesta:
 - HTTP 200-OK:
