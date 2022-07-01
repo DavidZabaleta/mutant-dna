@@ -10,6 +10,14 @@ Este proyecto consiste en una REST API que evalua si una cadena de ADN dada corr
 - MongoDB
 - Docker
 - AWS ECS
+- Gradle 7.4.2
+
+## Ejecución
+
+Para la ejecución de la API en un ambiente local se deben de seguir los siguientes pasos:
+
+1. Se debe de reemplazar las variables ``MONGODB_URL_NOT_LOCAL>`` y ``<DATABASE_NAME>`` que hay en el archivo ``applications/app-service/src/main/resources/application.yaml``
+2. Ejecutar ``gradle bootRun``
 
 ## Servicios
 
