@@ -5,6 +5,7 @@ import com.mercadolibre.davidzabaleta.model.gateways.MutantDnaRepository;
 import com.mercadolibre.davidzabaleta.mongo.helper.AdapterOperations;
 import org.reactivecommons.utils.ObjectMapper;
 import org.springframework.stereotype.Repository;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Repository
@@ -19,5 +20,10 @@ public class MutantDnaRepositoryAdapter extends AdapterOperations<MutantDna, Mut
     public Mono<MutantDna> saveRecord(MutantDna mutantDna) {
         return repository.save(MutantDnaConverter.convertModelToData(mutantDna))
                 .map(MutantDnaConverter::convertDataToModel);
+    }
+
+    @Override
+    public Flux<MutantDna> getAllDnaResults() {
+        return findAll();
     }
 }

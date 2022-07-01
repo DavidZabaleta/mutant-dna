@@ -11,6 +11,8 @@ import java.util.stream.Stream;
 public class OperationsMutantDna {
     private static final String NOT_ALLOWED_NITROGENOUS_BASE_REGEX = "[atcgATCG]+";
 
+    public OperationsMutantDna() {}
+
     public static MutantDna evaluateMutantDna(List<String> dnaSequence) {
         int totalOfHorizontalMutantGenes;
         int totalOfVerticalMutantGenes = 0;

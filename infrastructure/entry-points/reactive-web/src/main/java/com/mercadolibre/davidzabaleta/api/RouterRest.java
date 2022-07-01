@@ -6,6 +6,7 @@ import org.springframework.web.reactive.config.WebFluxConfigurer;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
+import static org.springframework.web.reactive.function.server.RequestPredicates.GET;
 import static org.springframework.web.reactive.function.server.RequestPredicates.POST;
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 
@@ -14,6 +15,7 @@ public class RouterRest implements WebFluxConfigurer {
 
     @Bean
     public RouterFunction<ServerResponse> routerFunction(Handler handler) {
-        return route(POST("/mutant"), handler::saveDnaSequence);
+        return route(POST("/mutant"), handler::saveDnaSequence)
+                .andRoute(GET("/stats"), handler::getDnaStats);
     }
 }
