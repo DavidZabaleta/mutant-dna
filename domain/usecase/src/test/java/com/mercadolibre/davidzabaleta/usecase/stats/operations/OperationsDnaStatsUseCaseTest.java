@@ -15,8 +15,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static org.junit.Assert.*;
-
 @RunWith(JUnitParamsRunner.class)
 public class OperationsDnaStatsUseCaseTest {
 
