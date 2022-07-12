@@ -19,7 +19,7 @@ Para la ejecución de la API en un ambiente local se deben de seguir los siguien
 1. Se debe de reemplazar las variables ``MONGODB_URL_NOT_LOCAL>`` y ``<DATABASE_NAME>`` que hay en el archivo ``applications/app-service/src/main/resources/application.yaml``
 2. Ejecutar ``gradle bootRun``
 
-## Servicios
+## Servicios (Temporalmente deshabilitados de AWS)
 
 __POST - /mutant__
 
